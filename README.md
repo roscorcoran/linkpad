@@ -8,3 +8,8 @@ data:text/html, <html><head><title>Linkpad</title><script>var s=function(){var s
 
 Working on:
 Full browser support
+
+Supports:
+Chrome- Yes
+Safari and Firefox- Not so much.
+IE- Potatoe
