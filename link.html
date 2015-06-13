@@ -1,26 +1,30 @@
-data:text/html,
 <html>
 <head>
-  <title>Linkpad</title>
+  <title>Linkpad - note</title>
   <script>
-    var on = window.location.href.split('tdsh')[2];
-    var o =  (on.length>0?window.location.href.slice(0,-(on.length)):window.location.href);
-    var s = function () {
-      window.location.href = o + document.getElementById('n').value;
-    };
-    var d = function () {
-      var d = document.getElementById('d');
-      d.download = document.getElementById('i').value + '.txt';
-      d.href = 'data:text/plain;base64,' + btoa(document.getElementById('n').value);
+    window.onbeforeunload = function () {return 'Really leave?';};
+    var st, ost,
+    di = function(e){return document.getElementById(e);},
+    s = function () {
+      st[0] = di('n').value; st[1] = di('i').value; window.onbeforeunload = null;
+      window.location.href = window.location.href.replace(encodeURIComponent(btoa(JSON.stringify(ost))), encodeURIComponent(btoa(JSON.stringify(st))));
+    },
+    d = function () {
+      di('d').download = di('i').value + '.txt';
+      di('d').href = 'data:text/plain;base64,' + btoa(di('n').value);
+    },
+    ol = function (){
+      st = JSON.parse(atob(decodeURIComponent(window.location.href.match(/!--.*?--/g)[1].slice(3, -1).slice(0, -1))));
+      ost = JSON.parse(JSON.stringify(st));
+      di('n').value = st[0]; di('i').value = st[1]; document.title = 'Linkpad - ' + st[1];
     }
   </script>
 </head>
-<body onload="document.getElementById('n').value = on;"
-      style='border:2px solid grey;'>
-<input id='i' type='text' value='note'/>.txt
+<body onload='ol();' style='border:2px solid grey;'>
+<input id='i' type='text'/>.txt
 <a id='d' href='/' onclick='d()' download='note.txt'>Download</a>
 <a id='s' href='' onclick='s(); return false;'>Save</a>
 <br>
-<textarea id='n' style='border:1px solid grey;height: 100%;width: 100%' autofocus></textarea>
-</body>
-</html>tdshA Note
+<textarea id='n' style='border:1px solid grey;height: 100%;width: 100%' autofocus></textarea></body>
+<!--WyJBIG5vdGUiLCJub3RlIl0=-->
+</html>
