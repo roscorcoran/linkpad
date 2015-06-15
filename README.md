@@ -1,6 +1,6 @@
 # linkpad
 
-A notepad in a link!
+## A notepad in a link!
 
 No more TextEdit.app or Notepad.exe, get with the times.
 
@@ -29,4 +29,14 @@ Supports:
 
 Safari- Not so much.
 
-IE- Potatoes 
+IE- Potatoes
+
+## Source
+The source is in link.html. 
+
+link.html encoded with encodeURIComponent() via gulp to create link.
+
+## Build
+npm install && gulp
+
+
