@@ -22,6 +22,7 @@ Working on:
 - Styling
 - Autosave
 - Full gulp automation
+- minify js and HTML before generating link
 
 Supports:
 * Chrome- Yes
