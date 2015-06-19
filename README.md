@@ -26,8 +26,7 @@ Working on:
 Supports:
 * Chrome- Yes
 * Firefox- Yes
-
-Safari- Not so much.
+* Safari- Not so much.
 
 IE- Potatoes
 
