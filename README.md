@@ -24,7 +24,7 @@ Working on:
 - minify js and HTML before generating link
 
 Supports:
-* Chrome- Yes
+* Chrome- No ([Chrome removed navigation to top level Data URIs because they are annoying](https://groups.google.com/a/chromium.org/forum/#!topic/blink-dev/GbVcuwg_QjM%5B1-25%5D))
 * Firefox- Yes
 * Safari- Not so much.
 
